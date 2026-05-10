@@ -1,4 +1,4 @@
-# 2026 S1 DSCubed Kaggle Prediction Competition 2nd Place Solution
+# 2026 S1 DSCubed Kaggle Stock Market Prediction Competition 2nd Place Solution
 
 ## Problem
 
