@@ -1,5 +1,7 @@
 # 2026 S1 DSCubed Kaggle Stock Market Prediction Competition 2nd Place Solution
 
+9 May 2026 
+
 ## Problem
 
 Given 40 historical price steps (`p1`–`p40`) for each of 10,000 stocks, predict which stocks will decline by the next observation (`p50`) and decide which to sell. The objective is to maximise total profit from correct sell decisions, subject to a sell quota constraint derived from the submission template.
@@ -10,9 +12,9 @@ Given 40 historical price steps (`p1`–`p40`) for each of 10,000 stocks, predic
 
 Features are built exclusively from the 40-step price series. Each tier adds complexity and is only included if it improves out-of-fold profit.
 
-- **v1 — Price levels & returns:** last/first/mean price, total and windowed returns (5, 10 step), return statistics, simple moving averages (5, 10, 20), MA crossovers, rolling volatility, up/down ratio.
-- **v2 — Trend & momentum:** linear slope via `polyfit` over multiple windows, momentum acceleration (short vs long window return difference), position within recent high-low range, max drawdown from running peak, extreme move detection.
-- **v3 — Technical indicators:** log return distribution (mean, std, skew, kurtosis), RSI at 5/10/14 periods, Bollinger band position, exponential moving averages with price-EMA spread, return autocorrelation at lags 1/3/5, price ratios to lagged values.
+- **v1 - Price levels & returns:** last/first/mean price, total and windowed returns (5, 10 step), return statistics, simple moving averages (5, 10, 20), MA crossovers, rolling volatility, up/down ratio.
+- **v2 - Trend & momentum:** linear slope via `polyfit` over multiple windows, momentum acceleration (short vs long window return difference), position within recent high-low range, max drawdown from running peak, extreme move detection.
+- **v3 - Technical indicators:** log return distribution (mean, std, skew, kurtosis), RSI at 5/10/14 periods, Bollinger band position, exponential moving averages with price-EMA spread, return autocorrelation at lags 1/3/5, price ratios to lagged values.
 
 ### Models
 
@@ -28,7 +30,7 @@ Inspired by [Dr Yirun Zhang's 1st place solution](https://www.kaggle.com/competi
 
 ### Sell Count Optimisation
 
-Rather than using the default sell quota, the pipeline sweeps sell ratios from 10% to 50% on out-of-fold predictions and selects the count that maximises OOF profit. A higher hold ratio produced lower raw profit on paper but higher confidence per trade — selling fewer stocks with stronger conviction outperformed aggressive selling on the leaderboard.
+Rather than using the default sell quota, the pipeline sweeps sell ratios from 10% to 50% on out-of-fold predictions and selects the count that maximises OOF profit. A higher hold ratio produced lower raw profit on paper but higher confidence per trade, and selling fewer stocks with stronger conviction outperformed aggressive selling on the leaderboard.
 
 ## Pipeline Structure
 
@@ -43,7 +45,7 @@ Each model is only submitted if it beats the current best OOF profit. Baselines 
 
 ## Validation
 
-- **5-fold CV** with OOF profit as the primary selection metric (not MAE)
+- **5-fold CV** with OOF profit as the primary selection metric
 - **7% holdout** reserved as a final sanity check, never used for model selection
 - **Sign validation** to confirm sell decisions target negative predicted price changes
 
