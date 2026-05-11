@@ -20,7 +20,7 @@ Features are built exclusively from the 40-step price series. Each tier adds com
 
 - **XGBoost** (`reg:squarederror`, MAE eval, depth 6, lr 0.05, L1+L2 reg)
 - **LightGBM** (same general config, 31 leaves)
-- **Ensemble** — simple average of XGB and LGB predictions. Only submitted if OOF profit exceeds both individual models.
+- **Ensemble** - simple average of XGB and LGB predictions. Only submitted if OOF profit exceeds both individual models.
 
 All models trained with 5-fold CV. Test predictions averaged across folds.
 
@@ -51,7 +51,7 @@ Each model is only submitted if it beats the current best OOF profit. Baselines 
 
 ## Results
 
-[Full leaderboard](https://www.kaggle.com/competitions/ds-cubed-kaggle-competition-2026-s-1/leaderboard) · 2nd place out of 30+ teams with a score of 18,944.25 (profit), within 512.75 of 1st place. Solo entry with 6 submissions.
+[Full leaderboard](https://www.kaggle.com/competitions/ds-cubed-kaggle-competition-2026-s-1/leaderboard) · 2nd place out of 45 teams with a score of 18,944.25 (profit), within 512.75 of 1st place. Solo entry with 6 submissions.
 
 ## Requirements
 
